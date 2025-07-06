@@ -1,0 +1,72 @@
+Backend structure :
+project/
+├── config/
+│   └── db.js         👉 MongoDB connection
+├── models/
+│   └── Student.js    👉 Schema/Model
+├── index.js          👉 Starts the server, loads routes
+├── routes/
+│   └── auth.js       👉 Handles /login route
+├── controllers/
+│   └── authController.js 👉 Contains login logic
+
+
+--------------------------------------------------------------
+Initial Things to do :
+
+Initialise package.json:
+npm init -y
+
+Install Express and Nodemon :
+npm install express
+npm install -g nodemon  // nice server 
+npm install mongoose // for mongo db 
+
+To run Server or Any File:
+nodemon index.js
+
+Add this in package.json to make the project as ES6:
+"type": "module"    
+
+--------------------------------------------------------------
+Mongoose :
+=> used for connecting to DB (MONGO) :
+=> use mongoose to conect to db and thats simple refer code config/db
+
+Schema :
+=> Schema sets the data which is got from the UI and restricts extra data from inserting into db
+eg : 
+const UserListSchema = new mongoose.Schema({
+    name: String,
+    pass: String
+});
+
+Model :
+=> using that schemas models are created . 
+=> Export that models to use that and run query in it
+eg :
+const UserList = mongoose.model('UserList', UserListSchema , 'Users');
+=> here inside the bracket :
+     The first UserList is the alias name for that collection choosen 
+     Second is the schema 
+     Third is the collection that to be used
+--------------------------------------------------------------
+✅ Express Request Object Essentials: IMPORTANT
+Property	  Description
+req.headers	  ✅ Gets all headers (like Authorization, Content-Type, etc.)
+req.body	  ✅ Gets the request body (POST, PUT, etc.) – needs middleware like express.json()
+req.query	  ✅ Gets URL query params like ?name=Sri&age=25
+req.params	  Gets dynamic route params like /users/:id
+req.url	      The full URL path (e.g., /users/123?name=Sri)
+req.path	  Only the path (e.g., /users/123)
+req.method	  The HTTP method (GET, POST, PUT, DELETE, etc.)
+req.cookies	  Cookies (if using cookie-parser middleware)
+req.ip	      IP address of the client
+--------------------------------------------------------------
+Returing in a api :
+1, Returning API data    =>	res.status().json({...})
+2, Sending plain text    =>	res.send("text")
+3, Sending HTML          =>	res.send("<h1>Hello</h1>")
+4, Ending response early =>	res.sendStatus(404)
+5, To just send Json     => res.json({ message: "Hello, Sri!" });
+--------------------------------------------------------------
