@@ -1,4 +1,3 @@
-import { RiAwardLine } from 'react-icons/ri';
 import { UserList } from '../models/LoginModels.js'
 
 export const getSearchView = async (req, res) => {
@@ -10,7 +9,7 @@ export const getSearchView = async (req, res) => {
          // sri 10
 
         if (search_type === 'user_list') {
-            const userlist = await UserList.find(); // ✅ await!
+            const userlist = await UserList.find({isActive : true}); // ✅ await!
             return res.status(200).json({ success : true , data: userlist });
         }
         else{

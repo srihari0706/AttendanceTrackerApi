@@ -1,11 +1,8 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const UserListSchema = new mongoose.Schema({
-    name:  { type: String, required: true },
-    pass:  { type: String, required: true }
+  name: { type: String, required: true },
+  pass: { type: String, required: true },
 });
 
-
-export const UserList = mongoose.model('UserList', UserListSchema , 'Users');
-
-
+export const UserList = mongoose.model("UserList", UserListSchema, "Users");

@@ -9,7 +9,7 @@ connectDB();
 app.use(express.json());  // this makes to parse it as req.body i e. the json will be easily accesed by the request body
 
 // Use routes
-app.use('/api', authRoutes); // all routes will start with /api ie api is end point
+app.use('/attendance', authRoutes); // all routes will start with /api ie api is end point
 
 app.get('/', (req, res) => {
   res.send('API is running');
