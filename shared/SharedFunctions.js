@@ -23,8 +23,9 @@ export const getSchemaKeys = (modalName) => {
 };
 
 //return mesgage
-export const ReturnSuccess = (res, isSuccess, message) => {
+export const ReturnSuccess = (res, isSuccess, message, json = {}) => {
   return res.status(200).json({
+    data : json,
     success: isSuccess,
     message: message,
   });

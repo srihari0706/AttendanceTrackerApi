@@ -4,6 +4,7 @@ import { getSearchView } from '../controllers/SearchViewControllers.js';
 import { InsertUpdatePermissionRequest } from '../controllers/PermissionRequestController.js';
 import { InsertUpdateLeaveRequest } from '../controllers/LeaveRequestController.js';
 import { InsertUpdateAttendanceReports } from '../controllers/AttendanceReportController.js';
+import { fetch_dropdowns } from '../controllers/DropDownController.js'
 
 const authRoutes = express.Router(); //this will create a small interal router that routs to a aprticular function
 // login routes
@@ -12,6 +13,9 @@ authRoutes.post('/login', checkUser);
 
 //Search view routes
 authRoutes.get('/get-search-view' , getSearchView) //get must use encodeURIComponent and json.stringify
+
+//DropDowns
+authRoutes.get("/fetch_dropdowns" , fetch_dropdowns)
 
 //permission 
 authRoutes.post('/insert_update_permission' , InsertUpdatePermissionRequest)
