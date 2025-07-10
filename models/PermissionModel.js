@@ -1,18 +1,21 @@
 import mongoose from "mongoose";
 
 const PermissionSchema = new mongoose.Schema({
-    _id: ObjectId('686d5e30dbd257acd3ba3ef1'),
-    CreatedByDesc: '',
-    CreatedById: 0,
-    CreatedTime: '',
-    Date: '',
-    FromTime: '',
-    Reason: '',
-    Status: 3,
-    StatusDesc: 'Pending',
-    ToTime: '',
-    UpdatedByDesc: '',
-    UpdatedById: 0,
-    UpdatedByTime: '',
-    UserId: ''
-  })
+  "CreatedByDesc": { type: String },
+  "CreatedById": { type: String },
+  "CreatedTime": { type: String },
+  "Date": { type: String },
+  "FromTime": { type: String },
+  "Reason": { type: String },
+  "Status": { type: Number },
+  "StatusDesc": { type: String },
+  "ToTime": { type: String },
+  "UpdatedByDesc": { type: String },
+  "UpdatedById": { type: String },
+  "UpdatedByTime": { type: String },
+  "UserId": { type: String },
+  "EmployeeDesc": { type: String },
+  "employeeTypeId": { type: String },
+})
+
+export const PermissionModel = mongoose.model("PermissionModel" , PermissionSchema , "PermissionRequests" )

@@ -34,7 +34,8 @@ Mongoose :
 => use mongoose to conect to db and thats simple refer code config/db
 
 Schema :
-=> Schema sets the data which is got from the UI and restricts extra data from inserting into db
+=> Schema sets the data which is got from the UI and restricts extra data from inserting into db 
+=> This also checks the data type while inserting and updateing , if the data sent from ui is not of that type it will tries to type cast if that cannot be type casted then it will throw error
 eg : 
 const UserListSchema = new mongoose.Schema({
     name: String,

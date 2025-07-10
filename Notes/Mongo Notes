@@ -184,7 +184,7 @@ Note : In the below the school is DB , the students is Collection .
     => similarly there is Many to delete muliple documents
     You can also delete a document which does not have a field in it or vice versa :
     eg:
-    db.students.deleteMany({isHostel : {$exists : false}}) 
+    db.students.deleteMany({isHostel : {$exists : false}}) // if isHostel key is not presnt in a document that  document will be deleted 
     => the above deletes a adocument which doesnot have isHostel field
 17 , To get the execution stats use :
     db.students.find().explain('executionStats)
@@ -197,7 +197,7 @@ Some Operators :
 1, set 
 2, unset 
 3, exists
-    db.students.deleteMany({isHostel : {$exists : false}}) 
+    db.students.deleteMany({isHostel : {$exists : false}}) // if isHostel key is not presnt in a document that  document will be deleted 
 Conditional Operators :
 4, ne => not equal
     db.students.find({name : {$ne : 'sri1'}})
@@ -221,7 +221,14 @@ Logical Operators : These logical operators must be in a array []
     db.students.find({ $nor: [ { class: 10 }, { name: 'sri2' }, { age: { $lte: 2 } } ] })
 15, or => normal or operator
     db.students.find({ $or: [ { class: 10 }, { name: 'sri2' }, { age: { $lte: 2 } } ] })
-
+Other Operators :
+16 , rename : ($rename)
+    => Used to rename a key in document 
+    eg : db.collection.updateOne(
+         { <filter> },
+         { $rename: { "oldFieldName": "newFieldName" } }
+         )
+    
 --------------------------------------------------------------------
 
 
